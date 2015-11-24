@@ -1,0 +1,48 @@
+{
+    "global-properties":{
+        "gemfire": "/Users/rmay/Pivotal/software/Pivotal_GemFire_810_b50625_Linux",
+        "java-home" : "/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home",
+        "locators" : "Randy-May-MacBook-Pro.local[10000]",
+        "cluster-home" : "gemfire-cluster",
+        "distributed-system-id": 1
+    },
+   "locator-properties" : {
+        "bind-address": "en0", 
+        "port" : 10000,
+        "jmx-manager-bind-address" : "en0",
+        "jmx-manager-port" : 11099,
+        "http-service-bind-address" : "en0",
+        "http-service-port" : 17070,
+        "enable-cluster-configuration" : false,
+        "jvm-options" : ["-Xmx1g","-Xms1g", "-XX:+UseConcMarkSweepGC"]
+    },
+   "datanode-properties" : {
+        "bind-address" : "en0",
+        "server-bind-address" : "en0",
+        "conserve-sockets" : false,
+        "use-cluster-configuration" : false,
+        "jvm-options" : ["-Xmx2g","-Xms2g","-Xmn256m", "-XX:+UseConcMarkSweepGC", "-XX:+UseParNewGC"],
+        "cache-xml-file" : "../../cache.xml",
+        "log-file" : "server.log"
+    },
+    "hosts": { 
+        "Randy-May-MacBook-Pro.local" : {  
+            "host-properties" :  {
+             },
+            "processes" :  {  
+                "locator" : {
+                      "type" : "locator"
+                 },
+                 "server1" : {
+                    "type" : "datanode",
+                    "server-port" : 10100
+                 },
+                 "server2" : {
+                    "type" : "datanode",
+                    "server-port" : 10200
+                 }
+            }
+        }
+   }
+}
+
