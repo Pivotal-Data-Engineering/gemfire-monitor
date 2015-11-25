@@ -8,13 +8,19 @@
 	<packaging>jar</packaging>
 
 	<name>gemfire-monitor</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.source.version>1.8</project.source.version>
 		<project.target.version>1.8</project.target.version>
+		<slf4j.version>1.6.1</slf4j.version>
+		<gemfire.version>8.1.0</gemfire.version>
 	</properties>
+
+	<scm>
+		<developerConnection>${gemfire-monitor.scm.url}</developerConnection>
+		<connection>${gemfire-monitor.scm.url}</connection>
+	</scm>
 
 	<repositories>
 		<repository>
@@ -38,6 +44,11 @@
 						<target>${project.target.version}</target>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 
@@ -59,6 +70,24 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>package-runtime</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -66,18 +95,12 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.6.1</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
+			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.gemstone.gemfire</groupId>
 			<artifactId>gemfire</artifactId>
-			<version>8.1.0</version>
+			<version>${gemfire.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>antlr</groupId>
@@ -118,13 +141,13 @@
 				<exclusion>
 					<groupId>xom</groupId>
 					<artifactId>xom</artifactId>
-				</exclusion>				
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.1</version>
+			<version>${slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
