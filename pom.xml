@@ -10,8 +10,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.source.version>1.8</project.source.version>
-		<project.target.version>1.8</project.target.version>
+		<project.source.version>1.7</project.source.version>
+		<project.target.version>1.7</project.target.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<gemfire.version>8.1.0</gemfire.version>
 	</properties>

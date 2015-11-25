@@ -169,7 +169,7 @@ public class GemFireMonitor extends Thread {
 		}
 
 		try {
-			GemFireMonitor m = new GemFireMonitor(jmxHost, jmxPort, jmxUser, jmxPass);
+			final GemFireMonitor m = new GemFireMonitor(jmxHost, jmxPort, jmxUser, jmxPass);
 			Runtime.getRuntime().addShutdownHook(new Thread() {
 
 				@Override
