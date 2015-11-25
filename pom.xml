@@ -3,7 +3,7 @@
 
 	<groupId>io.pivotal.pde</groupId>
 	<artifactId>gemfire-monitor</artifactId>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>gemfire-monitor</name>
@@ -19,7 +19,7 @@
 	<scm>
 		<developerConnection>${gemfire-monitor.scm.url}</developerConnection>
 		<connection>${gemfire-monitor.scm.url}</connection>
-	  <tag>gemfire-monitor-1.0</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<repositories>
