@@ -1,4 +1,4 @@
-#Overview#
+<h1> VMware has ended active development of this project, this repository will no longer be updated.</h1><br>#Overview#
 
 GemFire monitor  connects to a cluster via JMX and logs certain metrics 
 periodically.  It is built with as few dependencies as possible so that it can
